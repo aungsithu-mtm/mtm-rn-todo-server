@@ -10,10 +10,7 @@ if (!connectionString) {
 }
 
 mongoose
-    .connect(connectionString, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    } as mongoose.ConnectOptions)
+    .connect(connectionString)
     .then(() => {
         console.log('Connected to MongoDB');
     })
