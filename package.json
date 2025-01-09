@@ -1,0 +1,36 @@
+{
+  "name": "todo-app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "nodemon index.ts"
+  },
+  "dependencies": {
+    "@graphql-tools/schema": "^10.0.14",
+    "apollo-server": "^3.13.0",
+    "apollo-server-errors": "^3.3.1",
+    "apollo-server-express": "^3.13.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^16.4.7",
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^15.9.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.2",
+    "uuid": "^11.0.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^22.10.2",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
