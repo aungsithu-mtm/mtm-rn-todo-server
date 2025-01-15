@@ -7,8 +7,9 @@ import {
 import { UserChangePasswordInput, UserProviderUpdateInput } from "../types";
 import updateUserProvider from "../../services/userService/updateProvider";
 import changeUserPassword from '../../services/userService/changePassword';
-import { UserUpdateProfileInput } from "../types/userType";
+import { UserUpdateProfileInput, UserCreateInput } from "../types/userType";
 import updateUserProfile from "../../services/userService/updateProfile";
+import createUser from "../../services/userService/createUser"
 
 export default {
     Query: {
@@ -53,6 +54,17 @@ export default {
         },
     },
     Mutation: {
+        createUser: async (_: any, { input }: { input: UserCreateInput }, { req, res }) => {
+            try {
+                validateAuthentication(req, res);
+                const user = await User.findOne({ _id: req.userId });
+                if (!user) throwUserNotFound(res);
+                const response = await createUser(input);
+                return response;
+            } catch (error) {
+                throw new ApolloError(error);
+            }
+        },
         updateUserProvider: async (
             _: any,
             { input }: { input: UserProviderUpdateInput }

@@ -21,3 +21,9 @@ export type UserUpdateProfileInput = {
   isActive: boolean;
   imageUrl: string
 }
+
+export type UserCreateInput = {
+  email: string;
+  username: string;
+  password: string;
+}

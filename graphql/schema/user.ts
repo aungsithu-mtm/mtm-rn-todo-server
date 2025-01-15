@@ -55,6 +55,12 @@ const UserInput = gql`
         isActive: Boolean
         imageUrl: String
     }
+
+    input UserCreateInput {
+        email: String
+        username: String
+        password : String
+    }
 `
 
 const UserQuery = gql`
@@ -67,6 +73,7 @@ const UserQuery = gql`
 
 const UserMutation = gql`
     extend type Mutation {
+        createUser(input: UserCreateInput!) : ResponseMessage
         updateUserProvider(input: UpdateProviderInput!): AuthResponse
         updateUserProfile(input: UserUpdateProfileInput!): ResponseMessage
         changeUserPassword(input: UserChangePasswordInput!): AuthResponse

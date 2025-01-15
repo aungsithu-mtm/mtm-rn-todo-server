@@ -54,7 +54,6 @@ export const userSchema = new Schema<IUser>(
     phone: {
       type: String,
       required: false,
-      unique: true,
       trim: true,
       sparse: true,
       minlength: 10,

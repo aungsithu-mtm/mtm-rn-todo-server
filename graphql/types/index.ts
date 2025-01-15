@@ -4,13 +4,15 @@ export {
   RegisterInput,
   ResetInput,
   AuthResponse,
-  ResponseMessage
+  ResponseMessage,
+
 } from './authType'
 // User
 export {
   UserChangePasswordInput,
   UserProviderUpdateInput,
-  UserUpdateProfileInput
+  UserUpdateProfileInput,
+  UserCreateInput
 } from './userType'
 // Task
 export {
