@@ -1,5 +1,5 @@
 import { ApolloError } from "apollo-server-errors";
-import User from "../../domain/entity/user";
+import User, { userSchema } from "../../domain/entity/user";
 import {
     throwUserNotFound,
     validateAuthentication,
@@ -10,6 +10,7 @@ import changeUserPassword from '../../services/userService/changePassword';
 import { UserUpdateProfileInput, UserCreateInput } from "../types/userType";
 import updateUserProfile from "../../services/userService/updateProfile";
 import createUser from "../../services/userService/createUser"
+import { deleteUser } from "../../services/userService/deleteUser"
 
 export default {
     Query: {
@@ -115,6 +116,16 @@ export default {
             } catch (error) {
                 throw new ApolloError(error);
             }
-        }
+        },
+        deleteUsers: async (_, { input }: { input: String[] }, { res, req }) => {
+            try {
+                validateAuthentication(req, res);
+                const response = await deleteUser.deleteUsers(input, res);
+                return response;
+            } catch (error) {
+                throw new ApolloError(error);
+            }
+        },
+
     },
 };

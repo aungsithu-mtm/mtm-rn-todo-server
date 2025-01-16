@@ -26,4 +26,5 @@ export type UserCreateInput = {
   email: string;
   username: string;
   password: string;
+  imageUrl: string;
 }

@@ -60,6 +60,7 @@ const UserInput = gql`
         email: String
         username: String
         password : String
+        imageUrl: String
     }
 `
 
@@ -78,6 +79,7 @@ const UserMutation = gql`
         updateUserProfile(input: UserUpdateProfileInput!): ResponseMessage
         changeUserPassword(input: UserChangePasswordInput!): AuthResponse
         deleteUser: ResponseMessage
+        deleteUsers(input: [String]): ResponseMessage
     }
 `
 

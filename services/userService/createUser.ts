@@ -19,10 +19,11 @@ export default async function createUser(data: UserCreateInput): Promise<Respons
         phone: null,
         address: null,
         username: username,
-        imageUrl: null,
+        imageUrl: data.imageUrl || null,
         isActive: true,
         provider: [provider]
     });
+    console.log("USER ", user)
     await user.save();
     return {
         isSuccess: true,
