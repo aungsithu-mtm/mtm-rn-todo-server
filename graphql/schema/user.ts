@@ -79,7 +79,8 @@ const UserMutation = gql`
         updateUserProfile(input: UserUpdateProfileInput!): ResponseMessage
         changeUserPassword(input: UserChangePasswordInput!): AuthResponse
         deleteUser: ResponseMessage
-        deleteUsers(input: [String]): ResponseMessage
+        deleteSingleUser(input: String): ResponseMessage
+        deleteMultiUsers(input: [String]): ResponseMessage
     }
 `
 

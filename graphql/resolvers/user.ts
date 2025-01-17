@@ -23,10 +23,11 @@ export default {
                 throw new ApolloError(error);
             }
         },
-        user: async (parent: any, { id }: any, { req, res }) => {
+        user: async (parent: any, { _id }: any, { req, res }) => {
             try {
+                console.log("User ID", _id)
                 validateAuthentication(req, res);
-                const userExist = await User.findById(id);
+                const userExist = await User.findById(_id);
                 if (!userExist) throwUserNotFound(res);
                 return userExist;
             } catch (error) {
@@ -117,7 +118,16 @@ export default {
                 throw new ApolloError(error);
             }
         },
-        deleteUsers: async (_, { input }: { input: String[] }, { res, req }) => {
+        deleteSingleUser: async (_, { input }: { input: String }, { res, req }) => {
+            try {
+                validateAuthentication(req, res);
+                const response = await deleteUser.deleteUser(input, res);
+                return response;
+            } catch (error) {
+                throw new ApolloError(error);
+            }
+        },
+        deleteMultiUsers: async (_, { input }: { input: String[] }, { res, req }) => {
             try {
                 validateAuthentication(req, res);
                 const response = await deleteUser.deleteUsers(input, res);
