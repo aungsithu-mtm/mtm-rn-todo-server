@@ -13,6 +13,7 @@ const User = gql`
         isActive: Boolean
         imageUrl: String
         token: String
+        publicId: String
         provider: [Provider]
         createdAt: String
         updatedAt: String
@@ -26,6 +27,7 @@ const User = gql`
         email: String
         address: String
         imageUrl: String
+        publicId: String
         phone: String
         isActive: Boolean
     }
@@ -52,6 +54,7 @@ const UserInput = gql`
         username: String
         phone: String
         address: String
+        publicId: String
         isActive: Boolean
         imageUrl: String
     }
@@ -61,6 +64,7 @@ const UserInput = gql`
         username: String
         password : String
         imageUrl: String
+        publicId: String
     }
 `
 

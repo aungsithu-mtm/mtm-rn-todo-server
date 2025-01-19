@@ -13,6 +13,7 @@ export interface IUser {
   imageUrl: string
   password: string
   token: string
+  publicId: string
   isActive: boolean
   provider: Provider[]
   createdAt: Date
@@ -56,13 +57,17 @@ export const userSchema = new Schema<IUser>(
       required: false,
       trim: true,
       sparse: true,
-      minlength: 10,
-      maxlength: 10
+      minlength: 9,
+      maxlength: 11
     },
     address: {
       type: String,
       required: false,
       trim: true
+    },
+    publicId: {
+      type: String,
+      require: false
     },
     imageUrl: {
       type: String,

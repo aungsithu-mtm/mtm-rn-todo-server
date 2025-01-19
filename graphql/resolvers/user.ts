@@ -48,6 +48,7 @@ export default {
                     address: user.address,
                     phone: user.phone,
                     imageUrl: user.imageUrl,
+                    publicId: user.publicId,
                     isActive: user.isActive,
                 };
             } catch (error) {

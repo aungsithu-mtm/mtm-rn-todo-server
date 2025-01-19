@@ -19,7 +19,8 @@ export type UserUpdateProfileInput = {
   phone: string;
   address: string;
   isActive: boolean;
-  imageUrl: string
+  imageUrl: string;
+  publicId: string;
 }
 
 export type UserCreateInput = {
@@ -27,4 +28,5 @@ export type UserCreateInput = {
   username: string;
   password: string;
   imageUrl: string;
+  publicId: string
 }

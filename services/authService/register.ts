@@ -22,6 +22,7 @@ export default async function registerAccount(data: RegisterInput): Promise<Auth
     address: null,
     username: username,
     imageUrl: null,
+    publicId: null,
     isActive: true,
     provider: [provider]
   });

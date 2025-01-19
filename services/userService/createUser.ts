@@ -21,6 +21,7 @@ export default async function createUser(data: UserCreateInput): Promise<Respons
         username: username,
         imageUrl: data.imageUrl || null,
         isActive: true,
+        publicId: data.publicId,
         provider: [provider]
     });
     console.log("USER ", user)
