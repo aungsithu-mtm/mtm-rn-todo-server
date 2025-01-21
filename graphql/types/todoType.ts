@@ -1,8 +1,7 @@
 export type TaskCreateInput = {
     title: string;
-    description?: string;
-    fromDate: Date;
-    toDate: Date;
+    description: string;
+    date: string;
     fromTime: string;
     toTime: string;
     imageUrl: string;
@@ -12,9 +11,8 @@ export type TaskCreateInput = {
 export type UpdateTaskInput = {
     _id: string;
     title: string;
-    description?: string;
-    fromDate: Date;
-    toDate: Date;
+    description: string;
+    date: string;
     fromTime: string;
     toTime: string;
     imageUrl: string;

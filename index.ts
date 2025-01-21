@@ -28,7 +28,6 @@ app.use((req, res, next) => {
     }
     next()
 })
-
 const httpServer = http.createServer(app);
 const startApolloServer = async () => {
     const server = new ApolloServer({

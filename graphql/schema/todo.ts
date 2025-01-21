@@ -6,8 +6,7 @@ const Task = gql`
         title: String
         description: String
         userId: String
-        fromDate: String
-        toDate: String
+        date: String
         fromTime: String
         toTime: String
         imageUrl: String
@@ -20,8 +19,7 @@ const TaskInput = gql`
     input TaskCreateInput {
         title: String
         description: String
-        fromDate: String
-        toDate: String
+        date: String
         fromTime: String
         toTime: String
         imageUrl: String
@@ -32,8 +30,7 @@ const TaskInput = gql`
         _id: String
         title: String
         description: String
-        fromDate: String
-        toDate: String
+        date: String
         fromTime: String
         toTime: String
         imageUrl: String
@@ -41,22 +38,24 @@ const TaskInput = gql`
         status: String
     }
 
-    input UpdateTaskStatusInput {
+    input ToggleStatus {
         _id: String
-        status : String
     }
 `
 
 const TaskQuery = gql`
     extend type Query{
-        tasksQuery: [Task]
-        taskDetailQuery(_id: ID): Task
+        tasks: [Task]
+        getTask(id: ID): Task
     }
 `
 
 const TaskMutation = gql`
     extend type Mutation {
-        createTaskResolver(input: TaskCreateInput!): ResponseMessage
+        createTask(input: TaskCreateInput): ResponseMessage
+        updateTask(id: String, input: UpdateTaskInput!): ResponseMessage
+        deleteTask(id: String): ResponseMessage
+        deleteTasks(input: [String]): ResponseMessage
     }
 `
 

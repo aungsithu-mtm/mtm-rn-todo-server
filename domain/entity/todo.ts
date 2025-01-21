@@ -7,8 +7,7 @@ export interface ITask {
     title: string;
     description?: string;
     userId: string;
-    fromDate: Date;
-    toDate: Date;
+    date: Date;
     fromTime: string;
     toTime: string;
     imageUrl: string;
@@ -40,30 +39,22 @@ const taskSchema = new Schema<ITask>(
             ref: 'User',
             required: true,
         },
-        fromDate: {
-            type: Date,
-            required: true,
-        },
-        toDate: {
+        date: {
             type: Date,
             required: true,
         },
         fromTime: {
             type: String,
-            required: true,
         },
         toTime: {
             type: String,
-            required: true,
         },
         imageUrl: {
             type: String,
-            required: true,
         },
         status: {
             type: String,
             enum: ["NEW", "INPROGRESS", "COMPLETED"],
-            required: true,
         },
         isActive: {
             type: Boolean,
