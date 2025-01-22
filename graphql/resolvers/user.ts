@@ -17,7 +17,8 @@ export default {
         users: async (_, arg, { req, res }) => {
             try {
                 validateAuthentication(req, res);
-                const users = await User.find();
+                const userId = req.userId;
+                const users = await User.find({ _id: { $ne: userId } });
                 return users;
             } catch (error) {
                 throw new ApolloError(error);
