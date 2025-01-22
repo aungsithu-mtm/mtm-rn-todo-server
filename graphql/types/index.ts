@@ -18,6 +18,6 @@ export {
 export {
   TaskCreateInput,
   UpdateTaskInput,
-  UpdateTaskStatusInput
+  UpdateTaskStatusInput,
 } from './todoType'
 
